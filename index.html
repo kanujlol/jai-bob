@@ -49,6 +49,12 @@
             color: red;
             margin-top: 10px;
         }
+
+        .hidden-text {
+            display: none;
+            font-size: 14px;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -61,10 +67,13 @@
 
     <p id="random1" data-random="69,117,114,117,115,32,72,111,108,109,101,115"></p>
 
+    <p class="hidden-text">what you need is your favorite, sherlock</p>
+
     <script>
         const random1 = document.getElementById("random1");
         const charCodes = random1.getAttribute("data-random").split(",");
         const decodedAnswer = String.fromCharCode(...charCodes.map(Number)); 
+
         function checkAnswer() {
             const userAnswer = document.getElementById("answer").value.trim();
 
