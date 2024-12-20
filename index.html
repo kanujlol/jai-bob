@@ -6,7 +6,7 @@
     <title>Say My Name</title>
     <style>
         body {
-            font-family: 'Cousine', monospace; /* Apply Cousine font to all text */
+            font-family: 'Cousine', monospace;
             text-align: center;
             margin: 0;
             padding: 0;
@@ -33,7 +33,7 @@
 
         button {
             padding: 10px 20px;
-            background-color: #000000; /* Changed to black */
+            background-color: #000000;
             color: white;
             border: none;
             border-radius: 4px;
@@ -42,16 +42,12 @@
         }
 
         button:hover {
-            background-color: #444444; /* Darker shade of black on hover */
+            background-color: #444444;
         }
 
         .error {
             color: red;
             margin-top: 10px;
-        }
-
-        .hidden-answer {
-            display: none; /* Hide the answer from the inspect page */
         }
     </style>
 </head>
@@ -63,15 +59,16 @@
         <p class="error" id="error-message" style="display: none;">Incorrect answer. Try again!</p>
     </div>
 
-    <!-- Hidden Answer (Not visible in Inspect page) -->
-    <p class="hidden-answer" id="correct-answer">Eurus Holmes</p>
+    <p id="random1" data-random="69,117,114,117,115,32,72,111,108,109,101,115"></p>
 
     <script>
+        const random1 = document.getElementById("random1");
+        const charCodes = random1.getAttribute("data-random").split(",");
+        const decodedAnswer = String.fromCharCode(...charCodes.map(Number)); 
         function checkAnswer() {
-            const correctAnswer = document.getElementById("correct-answer").innerText;
             const userAnswer = document.getElementById("answer").value.trim();
 
-            if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+            if (userAnswer.toLowerCase() === decodedAnswer.toLowerCase()) {
                 window.location.href = "https://drive.google.com/file/d/13B_eIHLw3Sx2GKuw9mtlXQTXuJpsiWzI/view";
             } else {
                 const errorMessage = document.getElementById("error-message");
