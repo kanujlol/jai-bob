@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Say My Name</title>
+    <title>Sherlock's Mystery</title>
+    <!-- Link to Google Fonts for Cousine -->
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Cousine', monospace;
@@ -11,80 +13,87 @@
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
+            color: #333;
         }
 
         .container {
-            margin: 20vh auto;
-            max-width: 400px;
-            padding: 20px;
+            margin: 5vh auto;
+            max-width: 800px;
+            padding: 30px;
             background: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 8px;
+            line-height: 1.8;
         }
 
-        input[type="text"] {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #222;
         }
 
-        button {
-            padding: 10px 20px;
-            background-color: #000000;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
+        .info-text {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: left;
+            color: #444;
         }
 
-        button:hover {
-            background-color: #444444;
+        .info-text p {
+            margin-bottom: 15px;
         }
 
-        .error {
-            color: red;
-            margin-top: 10px;
+        .info-text strong {
+            font-weight: bold;
+            color: #222;
         }
 
-        /* Hidden text, you can modify or remove this to see in inspect */
-        .hidden-text {
-            visibility: hidden; /* Changed from display: none to visibility: hidden */
+        /* Hidden Clue Section */
+        .hidden-clue {
             font-size: 14px;
-            color: #fff;
+            color: #999;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        /* Ensure the hidden clue section is not visible on page */
+        .hidden-clue code {
+            visibility: hidden;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Say My Name!!!</h1>
-        <input type="text" id="answer" placeholder="Enter here sherlock">
-        <button onclick="checkAnswer()">Submit</button>
-        <p class="error" id="error-message" style="display: none;">Incorrect answer. Try again!</p>
+        <div class="info-text">
+            <p>Sherlock Holmes sat in his study, the familiar scent of tobacco and old books filling the air. He had just solved another case, but something felt off. As he sat back in his chair, a letter arrived, sealed with an unfamiliar emblem—one he had not seen in years.</p>
+
+            <p>With a mixture of curiosity and caution, Sherlock opened the envelope. The letter read:</p>
+
+            <p><strong>"Sherlock, you’ve solved countless mysteries, but the one that has always eluded you is the one that has been right under your nose. The truth is closer than you think, but you’ve been too blinded by your own brilliance to see it."</strong></p>
+
+            <p>Sherlock frowned. What was this referring to? His mind raced through every case he had worked on, but none seemed to fit. The message felt personal, almost as if it were speaking directly to him. As if someone knew him better than he knew himself.</p>
+
+            <p>The next day, another letter arrived. This one was more direct:</p>
+
+            <p><strong>"You’ve met her before, Sherlock. You’ve spoken to her, even looked her in the eyes. But you’ve never truly seen her. You’ve dismissed her as a figment of your past, but the truth is, she has always been a part of your life. To understand, you must look back to the time when you were forced to confront your greatest fear."</strong></p>
+
+            <p>Sherlock’s thoughts immediately turned to his family. His brother Mycroft was a constant in his life, but this wasn’t about him. No, this was someone else, someone who had always been a shadow in his past. A person he had tried to forget, a person whose name he had never spoken aloud.</p>
+
+            <p>The final letter arrived with a chilling tone:</p>
+
+            <p><strong>"You know her better than anyone, Sherlock. She is the one who has always been there, watching from the shadows. The one who made you question everything you thought you knew about yourself. The one who has been hiding in plain sight, waiting for you to finally understand."</strong></p>
+
+            <p>Sherlock’s heart raced as he pieced together the clues. There was only one person who fit this description—someone he had tried to forget, someone who had caused him to question everything he believed in. A person who had always been close, but never truly understood.</p>
+            <p>Who is it?</p>
+        </div>
+
+        <div class="hidden-clue">
+            https://drive.google.com/uc?export=download&id=13c5OQnx1JxJGOw1MIJ1L182qWAonBFXv
+            <!--Find who's it, use it to get the file.-->
+            <!--https://drive.google.com/uc?{first-letter-of-firstname}xpo{third-letter-of-firstname}t=download&id=13c{length-of-first-name}OQnx1JxJGOw1MIJL182qWA{second-letter-of-lastname}nBFXv
+            
+        </div>
     </div>
-
-    <p id="random1" data-random="69,117,114,117,115,32,72,111,108,109,101,115"></p>
-
-    <p class="hidden-text">what you need is your favorite, sherlock</p>
-
-    <script>
-        const random1 = document.getElementById("random1");
-        const charCodes = random1.getAttribute("data-random").split(",");
-        const decodedAnswer = String.fromCharCode(...charCodes.map(Number)); 
-
-        function checkAnswer() {
-            const userAnswer = document.getElementById("answer").value.trim();
-
-            if (userAnswer.toLowerCase() === decodedAnswer.toLowerCase()) {
-                window.location.href = "https://drive.google.com/uc?export=download&id=13c5OQnx1JxJGOw1MIJ1L182qWAonBFXv";
-            } else {
-                const errorMessage = document.getElementById("error-message");
-                errorMessage.style.display = "block";
-            }
-        }
-    </script>
 </body>
 </html>
