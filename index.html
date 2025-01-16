@@ -5,131 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Step 1: The Shadows Meeting</title>
     <style>
-        /* Red and black theme with background image */
         body {
             font-family: 'Cousine', monospace;
-            background-image: url('bloodred.png'); /* Background image */
-            background-size: cover; /* Cover the whole screen */
-            background-position: center; /* Center the image */
-            color: #f1f1f1; /* Light text color */
-            text-align: center;
-            padding: 50px;
             margin: 0;
-            height: 100vh;
+            padding: 0;
+            background-color: #ffffff; /* White background */
+            color: #000000; /* Black text */
             display: flex;
-            justify-content: center;
             align-items: center;
-            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
         }
-
-        h1 {
-            font-size: 3rem;
-            color: #e74c3c; /* Blood red */
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        .container {
+            text-align: center;
+            padding: 50px 30px;
+            background: #f0f0f0; /* Light grey background for the container */
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            animation: fadeIn 1.5s ease-in-out;
+            position: relative;
+            z-index: 2;
         }
-
-        p {
-            font-size: 1.5rem;
-            line-height: 1.6;
-            color: #000000; /* Black text color for the story */
-            margin-bottom: 30px;
+        .typing {
+            display: inline-block;
+            white-space: pre-wrap;
+            overflow: hidden;
+            font-size: 1.2em;
+            line-height: 1.8;
+            font-weight: 400;
+            text-align: left;
+            border-right: 3px solid #000000; /* Cursor effect */
         }
-
-        a {
-            font-size: 1.2rem;
-            text-decoration: none;
-            color: #e74c3c; /* Blood red */
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 15px 30px;
-            border-radius: 5px;
-            border: 2px solid #e74c3c;
-            transition: all 0.3s ease;
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #7f8c8d;
         }
-
-        a:hover {
-            background-color: #e74c3c;
-            color: #2c3e50;
-            border-color: #2c3e50;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const text = `Sherlock, I have an important matter to discuss with you.\n\nYou don’t know who I am yet, but I need you to meet me at Shadows.\nIt’s a place hidden in plain sight, only visible to those who understand its meaning.\nSee you there...`;
+            const typingContainer = document.querySelector(".typing");
+            let index = 0;
+            let lines = text.split("\n"); // Split text into lines
+            let currentLine = 0;
+            function typeWriter() {
+                if (currentLine < lines.length) {
+                    let line = lines[currentLine];
+                    let lineIndex = 0;
+    
+                    function typeLine() {
+                        if (lineIndex < line.length) {
+                            typingContainer.textContent += line.charAt(lineIndex);
+                            lineIndex++;
+                            setTimeout(typeLine, 50); // Adjust typing speed here
+                        } else {
+                            currentLine++;
+                            typingContainer.textContent += "\n"; // Move to next line
+                            setTimeout(typeWriter, 500); // Wait before typing next line
+                        }
+                    }
+                    typeLine();
+                }
+            }
+    
+            typeWriter(); // Start typing effect
+        });
+    </script>
 </head>
 <body>
-    <h1>The Shadows Meeting</h1>
-    <p><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step 1: The Shadows Meeting</title>
-    <style>
-        /* Red and black theme with background image */
-        body {
-            font-family: 'Cousine', monospace;
-            background-image: url('blood-red.png'); /* Background image */
-            background-size: cover; /* Cover the whole screen */
-            background-position: center; /* Center the image */
-            color: #f1f1f1; /* Light text color */
-            text-align: center;
-            padding: 50px;
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        h1 {
-            font-size: 3rem;
-            color: #e74c3c; /* Blood red */
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        p {
-            font-size: 1.5rem;
-            line-height: 1.6;
-            color: #000000; /* Black text color for the story */
-            margin-bottom: 30px;
-        }
-
-        a {
-            font-size: 1.2rem;
-            text-decoration: none;
-            color: #e74c3c; /* Blood red */
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 15px 30px;
-            border-radius: 5px;
-            border: 2px solid #e74c3c;
-            transition: all 0.3s ease;
-        }
-
-        a:hover {
-            background-color: #e74c3c;
-            color: #2c3e50;
-            border-color: #2c3e50;
-        }
-    </style>
-</head>
-<body>
-    <h1>The Shadows Meeting</h1>
-    <p>
-        <p>
-    Sherlock, I have an important matter to discuss with you. However, you don’t know who I am yet. 
-    I need you to meet me at <strong>Shadows</strong>, a place hidden in plain sight. 
-    It’s not just any place, though—it’s one that exists only for those who understand the meaning behind it.
-    You’ve solved many cases, but this one will require more than just logic. It will demand something far more elusive: intuition. 
-    A clue is hidden in the darkness, and only you can uncover it. 
-    But beware, you won’t find it easily unless you know the secret. 
-    This is not a typical meeting, Sherlock. This is a test. A test of your perception and your ability to see beyond the surface. 
-    If you’re ready to face it, follow the trail and meet me at <strong>Shadows</strong>.
-</p>
-
-    </p>
-</body>
-</html>
-
-    </p>
+    <div class="container">
+        <div class="typing"></div>
+ 
+    </div>
 </body>
 </html>
