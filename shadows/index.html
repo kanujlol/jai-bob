@@ -39,12 +39,9 @@
             font-style: italic;
         }
 
-        /* Hidden QR Code in CSS */
-        .hidden-qr {
+        /* Hidden QR Code in the source code */
+        .hidden-image-link {
             display: none;
-            background-image: url('img.png');
-            width: 200px;
-            height: 200px;
         }
     </style>
 </head>
@@ -60,7 +57,7 @@
         <p>
             The shadows in the image are not just mere details. No, Sherlock, they’re a clue. A clue that requires more than just
             your keen eye; it requires an understanding of how the smallest elements, the unnoticed ones, can hold the most
-            significant information. 
+            significant information. Look at (0,0) in it.
         </p>
 
         <p>
@@ -77,6 +74,6 @@
 
     </div>
 
-    <div class="hidden-qr"></div>
+    <a href="img.png" class="hidden-image-link" target="_blank">Click here to view the image</a>
 </body>
 </html>
